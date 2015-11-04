@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>yl3</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="city"  placeholder="city">
+    <button onclick="get_forecast()">Submit</button>
+    <br>
+
+<span id="forecast"></span>
+
+<script>
+    var city = $('#city').val();
+    function get_forecast() {
+        var city = $("#city").val();
+        $.get(
+                "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=551ddbdd7740915860c9c1094bcc47c0",
+                function (data) {
+                    //console.log(data.weather[0].description);
+                    var weather_forecast = data.weather[0].description;
+
+                    $("#forecast").html(weather_forecast);
+                }
+        );
+    };
+
+
+</script>
+
+</body>
+</html>
