@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Pseudo2</title>
+    <link rel="stylesheet" type="text/css"
+          href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+            src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+            src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+<table id="sort" border="1px">
+    <thead>
+        <tr>
+            <th>Eesnimi</th>
+            <th>Perenimi</th>
+            <th>Vanus</th>
+            <th>Auto mark</th>
+            <th>Elukoht</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+            <td>Peeter</td>
+            <td>Kaalikas</td>
+            <td>45</td>
+            <td>Audi A8</td>
+            <td>Maja</td>
+
+        </tr>
+        <tr>
+            <td>Jaana</td>
+            <td>Lind</td>
+            <td>26</td>
+            <td>Puudub auto</td>
+            <td>Korter</td>
+        </tr>
+        <tr>
+            <td>Heli</td>
+            <td>Kopter</td>
+            <td>12</td>
+            <td>Auto puudub</td>
+            <td>Maja</td>
+        </tr>
+        <tr>
+            <td>Juku</td>
+            <td>Pall</td>
+            <td>28</td>
+            <td>BMW X5</td>
+            <td>Korter</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    $(function () {
+        $("#sort").dataTable();
+    });
+</script>
+</body>
+</html>
