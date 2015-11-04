@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Pseudo2</title>
+    <link rel="stylesheet" type="text/css"
+          href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <style>
+        tfoot {
+            display: table-header-group;
+        }
+    </style>
+</head>
+
+<body>
+
+<table id="tabel" border="1px">
+    <thead>
+        <tr>
+            <th>Eesnimi</th>
+            <th>Perenimi</th>
+            <th>Vanus</th>
+            <th>Auto mark</th>
+            <th>Elukoht</th>
+        </tr>
+    </thead>
+
+    <tfoot>
+        <tr>
+            <th>Eesnimi</th>
+            <th>Perenimi</th>
+            <th>Vanus</th>
+            <th>Auto mark</th>
+            <th>Elukoht</th>
+        </tr>
+    </tfoot>
+
+    <tbody>
+        <tr >
+            <td>Peeter</td>
+            <td>Kaalikas</td>
+            <td>45</td>
+            <td>Audi A8</td>
+            <td>Maja</td>
+
+        </tr>
+        <tr>
+            <td>Jaana</td>
+            <td>Lind</td>
+            <td>26</td>
+            <td>Puudub auto</td>
+            <td>Korter</td>
+        </tr>
+        <tr>
+            <td>Heli</td>
+            <td>Kopter</td>
+            <td>12</td>
+            <td>Auto puudub</td>
+            <td>Maja</td>
+        </tr>
+        <tr>
+            <td>Juku</td>
+            <td>Pall</td>
+            <td>28</td>
+            <td>BMW X5</td>
+            <td>Korter</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('tfoot th').each(function () {
+            var title = $('thead th').eq($(this).index()).text();
+            $(this).html('<input type="text" placeholder="Otsing ' + title + '" />');
+        });
+
+        var table = $('#tabel').DataTable();
+
+        table.columns().every(function () {
+            var that = this;
+            $('input', this.footer()).on('keyup change', function () {
+
+                if (that.search() !== this.value) {
+                    that.search(this.value).draw();
+                }
+
+            });
+        });
+
+    });
+</script>
+</body>
+</html>
